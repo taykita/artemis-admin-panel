@@ -1,4 +1,4 @@
-package ru.kao.artemisadminpanel;
+package ru.kao.artemis.adminpanel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
