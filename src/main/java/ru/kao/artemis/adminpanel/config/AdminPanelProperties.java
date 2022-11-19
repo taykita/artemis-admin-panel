@@ -8,13 +8,36 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "ru.kao.artemis.admin")
 public class AdminPanelProperties {
 
-    public ConnectionFactoryProperties cfProps;
-    public String url;
+    private ConnectionFactoryProperties cfProps;
 
-    public class ConnectionFactoryProperties {
-        public String url;
-        public boolean sslEnabled;
-        public Map<String, Object> otherProps;
+    public static class ConnectionFactoryProperties {
+        private String url;
+        private boolean sslEnabled;
+        private Map<String, Object> otherProps;
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public boolean isSslEnabled() {
+            return sslEnabled;
+        }
+
+        public void setSslEnabled(boolean sslEnabled) {
+            this.sslEnabled = sslEnabled;
+        }
+
+        public Map<String, Object> getOtherProps() {
+            return otherProps;
+        }
+
+        public void setOtherProps(Map<String, Object> otherProps) {
+            this.otherProps = otherProps;
+        }
 
         @Override
         public String toString() {
@@ -24,5 +47,13 @@ public class AdminPanelProperties {
                     ", otherProps=" + otherProps +
                     '}';
         }
+    }
+
+    public ConnectionFactoryProperties getCfProps() {
+        return cfProps;
+    }
+
+    public void setCfProps(ConnectionFactoryProperties cfProps) {
+        this.cfProps = cfProps;
     }
 }

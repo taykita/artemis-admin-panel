@@ -1,6 +1,28 @@
 class Title extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			brokerURL: null
+		};
+	}
+
+	componentDidMount() {
+		const apiUrl = "/artemis/url";
+		fetch(apiUrl)
+			.then((response) => response.text())
+			.then((url) => this.setState({
+				brokerURL: url
+			}));
+	}
+
+
 	render() {
-		return <h1>Title</h1>;
+		return (
+			<div className="mainTitle">
+				<h1>Информация о брокере</h1> <br/>
+				<h3>Broker URL - {this.state.brokerURL}</h3>
+			</div>
+		);
 	}
 }
 
@@ -15,7 +37,7 @@ class Panel extends React.Component {
 	componentDidMount() {
 		const apiUrl = "/artemis/url";
 		fetch(apiUrl)
-			.then((response) => response.json())
+			.then((response) => response.text())
 			.then((data) => this.setState({
                 data: data
             }));
@@ -25,7 +47,6 @@ class Panel extends React.Component {
 		return (
             <div>
                 <h1>AdminPanel</h1>
-                <h5>{this.state.data}</h5>
             </div>
         )
 	}

@@ -19,6 +19,6 @@ public class ArtemisInfoController {
 
     @GetMapping("/url")
     public String getUrl() {
-        return adminPanelProperties.cfProps.url;
+        return adminPanelProperties.getCfProps().getUrl();
     }
 }

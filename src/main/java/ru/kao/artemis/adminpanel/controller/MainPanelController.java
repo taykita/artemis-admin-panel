@@ -8,11 +8,8 @@ import ru.kao.artemis.adminpanel.config.AdminPanelProperties;
 @Controller
 public class MainPanelController {
 
-    @Autowired
-    AdminPanelProperties adminPanelProperties;
-
     @GetMapping("/main")
-    public String testPage() {
+    public String mainPage() {
         return "main";
     }
 }
